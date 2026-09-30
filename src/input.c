@@ -8,8 +8,10 @@ enum input_status input_read(char *buffer, size_t size)
 	char *newline;
 	int c;
 
-	if (fgets(buffer, size, stdin) == NULL)
+	if (fgets(buffer, size, stdin) == NULL) {
+		putchar('\n');
 		exit(0);
+	}
 
 	if ((newline = strchr(buffer, '\n')) != NULL) {
 		*newline = '\0';
@@ -23,6 +25,7 @@ enum input_status input_read(char *buffer, size_t size)
 
 	if (c == '\n')
 		return INPUT_INVALID;
-	else
-		exit(0);
+
+	putchar('\n');
+	exit(0);
 }
