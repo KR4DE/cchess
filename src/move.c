@@ -28,13 +28,14 @@ enum move_status move_parse(const char *input, struct move *move)
 	if (!is_valid(input))
 		return MOVE_INVALID;
 
-	int from_col    = input[0] - 'a';
-	int from_row    = input[1] - '1';
-	int to_col      = input[2] - 'a';
-	int to_row      = input[3] - '1';
+	move->from.file = input[0];
+	move->from.rank = input[1];
+	move->to.file   = input[2];
+	move->to.rank   = input[3];
 	move->promotion = input[4];
-	move->from      = from_row << 3 | from_col;
-	move->to        = to_row   << 3 | to_col;
+
+	if (board_is_empty(move->from))
+		return MOVE_INVALID;
 
 	return MOVE_OK;
 }
@@ -42,9 +43,6 @@ enum move_status move_parse(const char *input, struct move *move)
 void move_apply(struct move move)
 {
 	char piece = board_get(move.from);
-
-	if (piece == '.')
-		return;
 
 	if (move.promotion) {
 		if (isupper(piece))

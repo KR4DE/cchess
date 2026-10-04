@@ -12,7 +12,7 @@ void game_start(void)
 	char input[BUFFER_SIZE];
 	struct move move;
 
-	board_reset();
+	board_init();
 
 	while (1) {
 		display_clear();
