@@ -12,10 +12,10 @@ void display_clear(void)
 void display_board(void)
 {
 	printf("%*s  +------------------------+\n", SPACES, "");
-	for (int row = 7; row >= 0; row--) {
-		printf("%*s%d |", SPACES, "", row + 1);
-		for (int col = 0; col < 8; col++)
-			printf(" %c ", board_get(row << 3 | col));
+	for (char rank = '8'; rank >= '1'; rank--) {
+		printf("%*s%c |", SPACES, "", rank);
+		for (char file = 'a'; file <= 'h'; file++)
+			printf(" %c ", board_at(file, rank));
 		puts("|");
 	}
 	printf("%*s  +------------------------+\n", SPACES, "");
