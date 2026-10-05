@@ -16,17 +16,16 @@ void game_start(void)
 
 	while (1) {
 		display_clear();
-		display_message("CChess\n\n");
 		display_board();
-		display_message("> ");
+		display_prompt();
 
-		if (input_read(input, sizeof(input)) == INPUT_INVALID)
+		if (input_read(input, sizeof(input)) == INPUT_TOO_LONG)
 			continue;
 
 		if (strcmp(input, "quit") == 0)
 			return;
 
-		if (move_parse(input, &move) == MOVE_INVALID)
+		if (move_parse_lan(input, &move) == MOVE_INVALID)
 			continue;
 
 		move_apply(move);

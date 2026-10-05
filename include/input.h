@@ -4,8 +4,8 @@
 #include <stddef.h>
 
 enum input_status {
-	INPUT_OK,
-	INPUT_INVALID
+	INPUT_READ_OK,
+	INPUT_TOO_LONG
 };
 
 enum input_status input_read(char *buffer, size_t size);

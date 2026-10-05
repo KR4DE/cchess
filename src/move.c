@@ -4,35 +4,35 @@
 #include <string.h>
 #include <ctype.h>
 
-static bool is_valid(const char *input)
+static bool is_valid_lan(const char *str)
 {
-	size_t len = strlen(input);
+	size_t len = strlen(str);
 
 	if (len != 4 && len != 5)
 		return false;
 
-	if (input[0] < 'a' || input[0] > 'h' ||
-	    input[1] < '1' || input[1] > '8' ||
-	    input[2] < 'a' || input[2] > 'h' ||
-	    input[3] < '1' || input[3] > '8')
+	if (str[0] < 'a' || str[0] > 'h' ||
+	    str[1] < '1' || str[1] > '8' ||
+	    str[2] < 'a' || str[2] > 'h' ||
+	    str[3] < '1' || str[3] > '8')
 		return false;
 
-	if (len == 5 && strchr("qrbn", input[4]) == NULL)
+	if (len == 5 && strchr("qrbn", str[4]) == NULL)
 		return false;
 
 	return true;
 }
 
-enum move_status move_parse(const char *input, struct move *move)
+enum move_status move_parse_lan(const char *str, struct move *move)
 {
-	if (!is_valid(input))
+	if (!is_valid_lan(str))
 		return MOVE_INVALID;
 
-	move->from.file = input[0];
-	move->from.rank = input[1];
-	move->to.file   = input[2];
-	move->to.rank   = input[3];
-	move->promotion = input[4];
+	move->from.file = str[0];
+	move->from.rank = str[1];
+	move->to.file   = str[2];
+	move->to.rank   = str[3];
+	move->promotion = str[4];
 
 	if (board_is_empty(move->from))
 		return MOVE_INVALID;

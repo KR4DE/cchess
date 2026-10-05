@@ -3,6 +3,6 @@
 
 void display_clear(void);
 void display_board(void);
-void display_message(const char *msg);
+void display_prompt(void);
 
 #endif /* CCHESS_DISPLAY_H */
