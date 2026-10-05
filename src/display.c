@@ -2,7 +2,7 @@
 #include "board.h"
 #include <stdio.h>
 
-#define SPACES 4
+#define SPACES "    " /* 4 */
 
 void display_clear(void)
 {
@@ -11,19 +11,20 @@ void display_clear(void)
 
 void display_board(void)
 {
-	printf("%*s  +------------------------+\n", SPACES, "");
+	puts(SPACES "  CChess");
+	puts(SPACES "  +------------------------+");
 	for (char rank = '8'; rank >= '1'; rank--) {
-		printf("%*s%c |", SPACES, "", rank);
+		printf(SPACES "%c |", rank);
 		for (char file = 'a'; file <= 'h'; file++)
 			printf(" %c ", board_at(file, rank));
 		puts("|");
 	}
-	printf("%*s  +------------------------+\n", SPACES, "");
-	printf("%*s    a  b  c  d  e  f  g  h\n\n", SPACES, "");
+	puts(SPACES "  +------------------------+");
+	puts(SPACES "    a  b  c  d  e  f  g  h\n");
 }
 
-void display_message(const char *msg)
+void display_prompt(void)
 {
-	printf("%*s%s", SPACES, "", msg);
+	fputs(SPACES "> ", stdout);
 	fflush(stdout);
 }
