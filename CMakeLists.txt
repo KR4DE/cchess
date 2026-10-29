@@ -46,7 +46,7 @@ add_test(NAME board COMMAND cchess-test-board)
 add_test(NAME move COMMAND cchess-test-move)
 
 install(TARGETS cchess RUNTIME DESTINATION .)
-install(FILES README.md DESTINATION .)
+install(FILES README.md LICENSE DESTINATION .)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(CPACK_SYSTEM_NAME "macos")
