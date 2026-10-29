@@ -3,7 +3,7 @@
 # CChess
 
 [![Release](https://img.shields.io/github/v/release/KR4DE/cchess?style=for-the-badge&labelColor=222222&logo=github&logoColor=white&color=1f6feb)](https://github.com/KR4DE/cchess/releases/latest)
-![License](https://img.shields.io/github/license/KR4DE/cchess?style=for-the-badge&labelColor=222222&logo=gitbook&logoColor=white&color=db6d28)
+[![License](https://img.shields.io/github/license/KR4DE/cchess?style=for-the-badge&labelColor=222222&logo=gitbook&logoColor=white&color=db6d28)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR4DE/cchess/ci.yml?branch=main&style=for-the-badge&label=CI&labelColor=222222&logo=githubactions&logoColor=white)](https://github.com/KR4DE/cchess/actions/workflows/ci.yml)
 
 ### Terminal-based chess written in C
@@ -140,3 +140,7 @@ cmake --build build --config Release
 
 The executable is then written to `build/`, or to `build/Release/` with
 multi-config generators such as Visual Studio (the default on Windows).
+
+## License
+
+CChess is licensed under the [MIT License](LICENSE).
