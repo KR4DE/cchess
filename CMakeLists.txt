@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.26)
 
 project(CChess
+  VERSION 0.1.0
   DESCRIPTION "Terminal-based chess written in C"
   HOMEPAGE_URL "https://github.com/KR4DE/cchess"
   LANGUAGES C
@@ -48,6 +49,8 @@ add_test(NAME move COMMAND cchess-test-move)
 install(TARGETS cchess RUNTIME DESTINATION .)
 install(FILES README.md LICENSE DESTINATION .)
 
+set(CPACK_PACKAGE_NAME "cchess")
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set(CPACK_SYSTEM_NAME "macos")
 else()
@@ -55,14 +58,12 @@ else()
 endif()
 
 if(CMAKE_OSX_ARCHITECTURES MATCHES ";")
-  set(cchess_arch "universal")
+  string(APPEND CPACK_SYSTEM_NAME "-universal")
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
-  set(cchess_arch "x86_64")
+  string(APPEND CPACK_SYSTEM_NAME "-x86_64")
 else()
-  string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" cchess_arch)
+  string(TOLOWER "${CPACK_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}" CPACK_SYSTEM_NAME)
 endif()
-
-set(CPACK_PACKAGE_FILE_NAME "cchess-${CPACK_SYSTEM_NAME}-${cchess_arch}")
 
 if(UNIX)
   set(CPACK_GENERATOR "TGZ")
