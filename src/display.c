@@ -11,7 +11,7 @@ void display_clear(void)
 
 void display_board(void)
 {
-	puts(SPACES "  CChess");
+	puts(SPACES "  CChess 0.1.0");
 	puts(SPACES "  +------------------------+");
 	for (char rank = '8'; rank >= '1'; rank--) {
 		printf(SPACES "%c |", rank);

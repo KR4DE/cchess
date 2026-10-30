@@ -12,7 +12,7 @@
 
 ```text
 
-      CChess
+      CChess 0.1.0
       +------------------------+
     8 | r  .  b  q  k  b  n  r |
     7 | p  p  p  p  .  p  p  p |
@@ -39,8 +39,8 @@ download first, see [Verifying downloads](#verifying-downloads-optional).
 **Linux**
 
 ```bash
-tar -xzf cchess-linux-x86_64.tar.gz
-cd cchess-linux-x86_64
+tar -xzf cchess-0.1.0-linux-x86_64.tar.gz
+cd cchess-0.1.0-linux-x86_64
 ./cchess
 ```
 
@@ -51,8 +51,8 @@ The `xattr` command is needed to remove the quarantine flag macOS adds to
 If it fails, you can ignore it and run the next command to start the game.
 
 ```zsh
-tar -xzf cchess-macos-universal.tar.gz
-cd cchess-macos-universal
+tar -xzf cchess-0.1.0-macos-universal.tar.gz
+cd cchess-0.1.0-macos-universal
 xattr -d com.apple.quarantine cchess
 ./cchess
 ```
@@ -60,8 +60,8 @@ xattr -d com.apple.quarantine cchess
 **Windows**
 
 ```powershell
-tar -xf cchess-windows-x86_64.zip
-cd cchess-windows-x86_64
+tar -xf cchess-0.1.0-windows-x86_64.zip
+cd cchess-0.1.0-windows-x86_64
 .\cchess.exe
 ```
 
@@ -73,7 +73,7 @@ can run this [GitHub CLI](https://cli.github.com/) command on the archive
 before extracting it, replacing the filename with yours:
 
 ```bash
-gh attestation verify cchess-linux-x86_64.tar.gz --repo KR4DE/cchess --signer-workflow KR4DE/cchess/.github/workflows/release.yml
+gh attestation verify cchess-0.1.0-linux-x86_64.tar.gz --repo KR4DE/cchess --signer-workflow KR4DE/cchess/.github/workflows/release.yml
 ```
 
 ## How to play
